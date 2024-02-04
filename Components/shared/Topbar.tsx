@@ -3,6 +3,7 @@ import Link from "next/link";
 import logo from "@/public/assets/logo.svg";
 import logout from "@/public/assets/logout.svg";
 import { OrganizationSwitcher, SignOutButton, SignedIn } from "@clerk/nextjs";
+import { dark } from "@clerk/themes";
 const Topbar = () => {
   const isUserLoggedIn = true;
   return (
@@ -30,8 +31,9 @@ const Topbar = () => {
 
         <OrganizationSwitcher
             appearance={{
+                baseTheme: dark,
                 elements: {
-                    organizationSwitcherTrigger:"py-2 px-5 text-light-1"
+                    organizationSwitcherTrigger:"py-2 px-5"
                 }
             }}
         />
