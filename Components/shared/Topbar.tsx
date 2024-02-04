@@ -31,7 +31,7 @@ const Topbar = () => {
         <OrganizationSwitcher
             appearance={{
                 elements: {
-                    organizationSwitcherTrigger:"py-2px-5"
+                    organizationSwitcherTrigger:"py-2 px-5 text-light-1"
                 }
             }}
         />
