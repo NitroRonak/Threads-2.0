@@ -1,14 +1,14 @@
 import mongoose from "mongoose";
 
-const UserSchema = new mongoose.Schema({
+const userSchema = new mongoose.Schema({
   id: {
     type: String,
     required: true,
   },
   username: {
     type: String,
-    required: true,
     unique: true,
+    required: true,
   },
   name: {
     type: String,
@@ -26,10 +26,14 @@ const UserSchema = new mongoose.Schema({
     type: Boolean,
     default: false,
   },
-  communities: [{
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "Community",
-  }],
+  communities: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Community",
+    },
+  ],
 });
 
-export const User =mongoose.models.User ||  mongoose.model("User", UserSchema);
+const User =mongoose.models.User ||  mongoose.model("User", userSchema);
+
+export default User;

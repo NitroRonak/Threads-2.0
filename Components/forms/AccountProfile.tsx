@@ -19,7 +19,11 @@ import Image from "next/image";
 import profile_photo from "@/public/assets/profile.svg";
 import { ChangeEvent, useState } from "react";
 import { isBase64Image } from "@/lib/utils";
-import {useUploadThing} from "@/lib/uploadthing";
+
+import { updateUser } from "@/lib/actions/user.actions";
+
+import { usePathname,useRouter } from "next/navigation";
+import { useUploadThing } from "@/lib/uploadthing";
 interface Props {
   user: {
     id: string;
@@ -35,6 +39,9 @@ interface Props {
 const AccountProfile = ({ user, btnTitle }: Props) => {
   const [files, setFiles] = useState<File[]>([]);
   const {startUpload}=useUploadThing("media")
+  const pathname=usePathname();
+  const [isDisbaled,setIsDisabled]=useState(false);
+  const router=useRouter();
 
   const form = useForm({
     resolver: zodResolver(UserValidation),
@@ -66,7 +73,9 @@ const AccountProfile = ({ user, btnTitle }: Props) => {
     }
   }
 
-  const onSubmit = async(values: z.infer<typeof UserValidation>)=> {
+  const onSubmit = async (values: z.infer<typeof UserValidation>)=> {
+    setIsDisabled(true)
+
     const blob = values.profile_photo;
     const hasImageChanged = isBase64Image(blob);
 
@@ -77,6 +86,24 @@ const AccountProfile = ({ user, btnTitle }: Props) => {
         values.profile_photo=imgRes[0].url
       }
     }
+
+    await updateUser({
+      userId: user.id,
+      username: values.username,
+      name: values.name,
+      bio: values.bio,
+      image: values.profile_photo,
+      path: pathname,
+    });
+
+    setIsDisabled(false);
+    if(pathname === "/profile/edit"){
+      router.back();
+    }
+    else{
+      router.push("/");
+    }
+
   }
   return (
     <Form {...form}>
@@ -180,7 +207,7 @@ const AccountProfile = ({ user, btnTitle }: Props) => {
             </FormItem>
           )}
         />
-        <Button type="submit" className="bg-primary-500">
+        <Button type="submit" className="bg-primary-500" disabled={isDisbaled}>
           Submit
         </Button>
       </form>
