@@ -44,8 +44,7 @@ export async function updateUser({
 export async function fetchUser(userId: string): Promise<any> {
   try {
     connectToDB();
-    const user = await User.findOne({ id: userId });
-    return user;
+    return await User.findOne({ id: userId });
   } catch (error: any) {
     throw new Error(`Failed to fetch user: ${error.message}`);
   }
