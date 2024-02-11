@@ -14,7 +14,6 @@ const threadSchema = new mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: "Community",
   },
-  path: {},
   createdAt: {
     type: Date,
     default: Date.now,
