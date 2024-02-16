@@ -1,7 +1,7 @@
 import { ClerkProvider } from "@clerk/nextjs";
 import { Mulish } from "next/font/google";
 import { dark } from "@clerk/themes";
-import "../globals.css"
+import "../globals.css";
 export const metadata = {
   title: "Threads",
   description: "A Next.js Meta Threads Application",
@@ -21,7 +21,8 @@ export default function RootLayout({
     >
       <html lang="en">
         <body className={`${mulish.className} bg-dark-1`}>
-            {children}
+          <div className="w-full flex justify-center items-center min-h-screen">{children}
+          </div>
         </body>
       </html>
     </ClerkProvider>
