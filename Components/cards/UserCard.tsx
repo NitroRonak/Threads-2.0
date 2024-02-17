@@ -14,8 +14,9 @@ interface Props {
 const UserCard = ({ id, name, username, imgUrl, personType }: Props) => {
     const router = useRouter();
   return (
-  <article className="user-card">
-    <div className="user-card_avatar">
+  <article className="flex flex-col justify-between gap-4 max-xs:rounded-xl max-xs:bg-dark-3 max-xs:p-4 xs:flex-row xs:items-center">
+
+    <div className="flex flex-1 items-start justify-start gap-3 xs:items-center">
         <Image
             src={imgUrl}
             alt="logo"
@@ -31,7 +32,7 @@ const UserCard = ({ id, name, username, imgUrl, personType }: Props) => {
     </div>
 
     <Button
-        className="user-card_btn"
+        className="h-auto min-w-[74px] rounded-lg bg-primary-500 text-[12px] text-light-1 !important"
         onClick={() => router.push(`/profile/${id}`)}
     >
         View

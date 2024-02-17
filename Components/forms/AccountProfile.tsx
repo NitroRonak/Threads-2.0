@@ -116,7 +116,7 @@ const AccountProfile = ({ user, btnTitle }: Props) => {
           name="profile_photo"
           render={({ field }) => (
             <FormItem className="flex items-center gap-4">
-              <FormLabel className="account-form_image-label">
+              <FormLabel className="flex h-24 w-24 items-center justify-center rounded-full bg-dark-4 !important">
                 {field.value ? (
                   <Image
                     src={field.value}
@@ -141,7 +141,7 @@ const AccountProfile = ({ user, btnTitle }: Props) => {
                   type="file"
                   accept="image/*"
                   placeholder="Choose profile photo"
-                  className="account-form_image-input"
+                  className="cursor-pointer border-none bg-transparent outline-none file:text-blue !important"
                   onChange={(e) => handleImage(e, field.onChange)}
                 />
               </FormControl>
@@ -162,7 +162,7 @@ const AccountProfile = ({ user, btnTitle }: Props) => {
               <FormControl>
                 <Input
                   type="text"
-                  className="account-form_input no-focus"
+                  className="border border-dark-4 bg-dark-3 text-light-1 !important focus-visible:ring-0 focus-visible:ring-transparent focus-visible:ring-offset-0 !important"
                   {...field}
                 />
               </FormControl>
@@ -182,7 +182,7 @@ const AccountProfile = ({ user, btnTitle }: Props) => {
               <FormControl className="flex-1 text-base-semibold text-gray-200">
                 <Input
                   type="text"
-                  className="account-form_input no-focus"
+                  className="border border-dark-4 bg-dark-3 text-light-1 !important  focus-visible:ring-0 focus-visible:ring-transparent focus-visible:ring-offset-0 !important"
                   {...field}
                 />
               </FormControl>
@@ -203,7 +203,7 @@ const AccountProfile = ({ user, btnTitle }: Props) => {
               <FormControl className="flex-1 text-base-semibold text-gray-200">
                 <Textarea
                   rows={10}
-                  className="account-form_input no-focus"
+                  className="border border-dark-4 bg-dark-3 text-light-1 !important  focus-visible:ring-0 focus-visible:ring-transparent focus-visible:ring-offset-0 !important"
                   {...field}
                 />
               </FormControl>

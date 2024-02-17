@@ -52,7 +52,7 @@ const ThreadCard = ({
               />
             </Link>
 
-            <div className="thread-card_bar"></div>
+            <div className="relative mt-2 w-0.5 grow rounded-full bg-neutral-800"></div>
           </div>
 
           <div className="flex w-full flex-col">

@@ -30,9 +30,9 @@ const page = async ({ params }: { params: { id: string } }) => {
 
       <div className="mt-9">
         <Tabs defaultValue="threads" className="w-full">
-          <TabsList className="tab">
+          <TabsList className="flex min-h-[50px] flex-1 items-center gap-3 bg-dark-2 text-light-2 data-[state=active]:bg-[#0e0e12] data-[state=active]:text-light-2 !important">
             {profileTabs.map((tab) => (
-              <TabsTrigger key={tab.label} value={tab.value} className="tab">
+              <TabsTrigger key={tab.label} value={tab.value} className="flex min-h-[50px] flex-1 items-center gap-3 bg-dark-2 text-light-2 data-[state=active]:bg-[#0e0e12] data-[state=active]:text-light-2 !important">
                 <Image src={tab.icon} alt={tab.label} width={20} height={20} />
                 <p className="max-sm:hidden">{tab.label}</p>
 

@@ -7,11 +7,11 @@ const Home = async () => {
   const result = await fetchPosts(1, 30);
   return (
     <>
-      <h1 className="head-text text-left">Home</h1>
+      <h1 className="text-heading2-bold text-light-1 text-left">Home</h1>
 
       <section className="mt-9 flex flex-col gap-10">
         {result.posts.length === 0 ? (
-          <p className="no-result">No Threads Found</p>
+          <p className="text-center !text-base-regular text-light-3">No Threads Found</p>
         ) : (
           <>
             {result.posts.map((post) => (
