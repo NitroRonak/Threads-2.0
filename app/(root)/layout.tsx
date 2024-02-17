@@ -6,7 +6,7 @@ import Topbar from "@/Components/shared/Topbar";
 import LeftSidebar from "@/Components/shared/LeftSidebar";
 import RightSidebar from "@/Components/shared/RightSidebar";
 import Bottombar from "@/Components/shared/Bottombar";
-
+import { dark } from "@clerk/themes";
 const mulish = Mulish({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -21,7 +21,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <ClerkProvider>
+    <ClerkProvider
+      appearance={{
+        baseTheme: dark,
+      }}
+    >
       <html lang="en">
         <body className={mulish.className}>
           <Topbar/>
